@@ -1,0 +1,40 @@
+<p>pipes works!</p>
+
+<h4>Name : {{ name }}</h4>
+<h4>Name in lowercase : {{ name | lowercase }}</h4>
+<h4>Name in uppercase : {{ name | uppercase }}</h4>
+<h4>Name in Title case : {{ name | titlecase }}</h4>
+
+<h4>{{ mySal }}</h4>
+<h4>{{ mySal | currency }}</h4>
+<h4>{{ mySal | currency: "INR" }}</h4>
+<!-- input | pipeName : arguement -->
+<h4>{{ mySal | currency: "&yen;" }}</h4>
+<h4>{{ mySal | currency: "&euro;" }}</h4>
+
+<h4>{{ today }}</h4>
+<h4>{{ today | date }}</h4>
+<h4>{{ today | date: "fullDate" }}</h4>
+<h4>{{ today | date: "mediumDate" }}</h4>
+<h4>{{ today | date: "shortDate" }}</h4>
+<h4>{{ today | date: "fullTime" }}</h4>
+<h4>{{ today | date: "mediumTime" }}</h4>
+<h4>{{ today | date: "shortTime" }}</h4>
+<h4>{{ today | date: "dd / MM / yyyy" }}</h4>
+<h4>{{ today | date: "dd / MMM / yyyy" }}</h4>
+<h4>{{ today | date: "dd / MMMM / yyyy" }}</h4>
+
+<!-- How to use multiple pipes (pipe chaining) -->
+<h4>{{ today | date: "dd / MMMM / yyyy" | uppercase }}</h4>
+<h4>{{ today | date: "dd / MMMM / yyyy" | lowercase }}</h4>
+
+<h4>{{ 12.1 | number: "3.2-5" }}</h4>
+<h4>{{ 12.111222333 | number: "3.2-5" }}</h4>
+<h4>{{ 0.75 | percent }}</h4>
+
+<h4>{{ user }}</h4>
+<h4>{{ user | json }}</h4>
+
+<h3 *ngFor="let entry of user | keyvalue">
+  {{ entry.key }}------{{ entry.value }}
+</h3>

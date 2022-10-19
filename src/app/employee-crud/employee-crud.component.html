@@ -1,0 +1,79 @@
+<h2 class="text-center">Employee CRUD Example</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-7">
+      <h3>Employee List</h3>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>SL No</th>
+            <th>EmpId</th>
+            <th>Name</th>
+            <th>Sal</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ emp.eId }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.sal }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteEmployee()">
+                DEL
+              </button>
+              &nbsp;
+              <button class="btn btn-secondary" (click)="editEmployee()">
+                Edit
+              </button>
+              &nbsp;
+              <button class="btn btn-secondary" (click)="openPopup(emp)">
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-5">
+      <h3>Employee Add</h3>
+      <div>
+        <p>eId: <input /></p>
+        <p>Name: <input /></p>
+        <p>Salary: <input /></p>
+        <p>
+          <button class="btn btn-primary" (click)="addEmployee()">
+            Add Emp
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle }"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Employee Details</h4>
+      </div>
+      <div class="modal-body">
+        <p>id: {{ selectedEmployee?.eId }}</p>
+        <p>Name: {{ selectedEmployee?.name }}</p>
+        <p>sal: {{ selectedEmployee?.sal }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
