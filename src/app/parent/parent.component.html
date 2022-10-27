@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <p id="para1">This is Parent Component</p>
+    <div>
+      My own data a is: {{ a }},
+      <input [(ngModel)]="a" type="number" #box1 id="box1" />
+    </div>
+    <div>My own data b is: {{ b }}</div>
+    <div>My child's data emp is: {{ parentEmp | json }}</div>
+
+    <div class="col-sm-6">
+      <app-child1
+        [aChild]="a"
+        (empEvent)="getDataFromChild($event)"
+        #child1
+      ></app-child1>
+    </div>
+    <div class="col-sm-6">
+      <app-child2 [b]="b" [child1]="child1"></app-child2>
+    </div>
+  </div>
+</div>

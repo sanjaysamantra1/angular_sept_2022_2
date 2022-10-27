@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 export class EmployeeCrudComponent implements OnInit {
   constructor() {}
 
+
   ngOnInit(): void {}
 
   employees = [

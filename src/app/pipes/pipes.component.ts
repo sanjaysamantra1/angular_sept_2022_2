@@ -15,4 +15,19 @@ export class PipesComponent implements OnInit {
   today = new Date();
 
   user = { name: 'sachin', age: 45, add: 'mumbai' };
+  cars = ['tata', 'honda', 'maruti', 'hundai', 'toyota', 'Audi'];
+  msg: string = 'Hello';
+  msg2: string = 'Hiiii';
+  searchText: string = '';
+
+  candinal: number = 21;
+
+  employees = [
+    { eId: 101, name: 'sanjay', sal: 5000, gender: 'male' },
+    { eId: 104, name: 'sita', sal: 8000, gender: 'female' },
+    { eId: 103, name: 'ranjan', sal: 7000, gender: 'male' },
+    { eId: 102, name: 'geeta', sal: 9000, gender: 'female' },
+  ];
+
+  arr = [10, 30, 50, 20, 40];
 }

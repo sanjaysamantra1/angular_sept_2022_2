@@ -1,0 +1,25 @@
+<p>employees works!</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Sal</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees">
+      <td>{{ emp.eId }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.sal }}</td>
+      <td>{{ emp.gender }}</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Name is: {{employeesService.name}}</h2>
+
+<button class="btn btn-success" (click)="getAllEmps()">Get All Employees</button>
+<button class="btn btn-primary" (click)="getMaleEmps()">Get Male Employees</button>
+<button class="btn btn-secondary" (click)="getFemaleEmps()">Get feMale Employees</button>

@@ -31,6 +31,7 @@
 <h4>{{ 12.1 | number: "3.2-5" }}</h4>
 <h4>{{ 12.111222333 | number: "3.2-5" }}</h4>
 <h4>{{ 0.75 | percent }}</h4>
+<h4>{{ 50 | percent }}</h4>
 
 <h4>{{ user }}</h4>
 <h4>{{ user | json }}</h4>
@@ -38,3 +39,35 @@
 <h3 *ngFor="let entry of user | keyvalue">
   {{ entry.key }}------{{ entry.value }}
 </h3>
+
+<h4>{{ cars }}</h4>
+<h4>{{ cars | slice: 2:4 }}</h4>
+=================================================================<br />
+<textarea cols="30" rows="5" [(ngModel)]="msg" maxlength="100"></textarea>
+<p>Msg: {{ msg }}</p>
+<p>Remaing Chars: {{ msg | remaining: 100 }}</p>
+=================================================================<br />
+<textarea cols="30" rows="5" [(ngModel)]="msg2" maxlength="200"></textarea>
+<p>Msg: {{ msg2 }}</p>
+<p>Remaing Chars: {{ msg2 | remaining: 200 }}</p>
+=================================================================<br />
+<input type="number" [(ngModel)]="candinal" />
+<p>Cardinal Number is {{ candinal }}</p>
+<!-- <p>Ordinal Number is {{ candinal | ordinal }}</p> -->
+
+<input type="search" placeholder="search..." [(ngModel)]="searchText" />
+<table border="5" align="center" width="50%">
+  <tr *ngFor="let emp of employees | filter: searchText">
+    <td>{{ emp.eId }}</td>
+    <td>{{ emp.name | prefix: emp.gender }}</td>
+    <td>{{ emp.gender }}</td>
+    <td>{{ emp.sal }}</td>
+  </tr>
+</table>
+
+<br />==============================================<br />
+Not Sorted Arr: <b *ngFor="let item of arr">{{ item }} &nbsp;</b> <br />
+Sorted Arr:<b *ngFor="let item of arr | mySort">{{ item }} &nbsp;</b>
+<br />
+<input type="number" #newNum />
+<button (click)="arr.push(+newNum.value)">Add New Number</button>
