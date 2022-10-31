@@ -1,0 +1,47 @@
+<h2 class="text-center">Employee CRUD Example</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-7">
+      <h3>Employee List</h3>
+      <button (click)="fetchEmployees()">Fetch Employees</button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>SL No</th>
+            <th>EmpId</th>
+            <th>Name</th>
+            <th>Sal</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees">
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.first_name }}</td>
+            <td>{{ emp.last_name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteEmp(emp.id)">
+                DEL
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-5">
+      <h3>Employee Add</h3>
+      <div>
+        <p>First Name: <input #fname /></p>
+        <p>Last Name: <input #lname /></p>
+        <p>Email: <input #email /></p>
+        <p>
+          <button class="btn btn-primary" (click)="addEmp(fname, lname, email)">
+            Add Emp
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

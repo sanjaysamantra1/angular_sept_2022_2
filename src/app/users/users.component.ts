@@ -12,7 +12,7 @@ export class UsersComponent implements OnInit {
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    const url = 'https://jsonplaceholder.typicode.com/users';
+    const url = 'https://jsonplaceholder.ypicode.com/users';
 
     this.httpClient.get(url).subscribe((response: any) => {
       console.log(response);
