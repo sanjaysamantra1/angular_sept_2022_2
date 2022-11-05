@@ -1,0 +1,42 @@
+<p>formdemo3 works!</p>
+
+<form
+  [formGroup]="registerForm"
+  (submit)="submitMyForm(registerForm)"
+  class="mt-4 p-5 rounded col-sm-5 offset-sm-4 border"
+>
+  <p>
+    FirstName: <input type="text" formControlName="firstname" />
+    <span
+      *ngIf="
+        registerForm.controls.firstname.hasError('required') &&
+        registerForm.controls.firstname.dirty
+      "
+      class="text-danger"
+    >
+      Name is Required
+    </span>
+    <span
+      *ngIf="
+        registerForm.controls.firstname.hasError('minlength') &&
+        registerForm.controls.firstname.dirty
+      "
+      class="text-danger"
+    >
+      Minimum 5 Chars
+    </span>
+  </p>
+  <p>LastName: <input type="text" formControlName="lastname" /></p>
+  <p>email: <input type="text" formControlName="email" /></p>
+  <p>DOB: <input type="date" formControlName="dob" /></p>
+  <fieldset formGroupName="address">
+    <p>city: <input type="text" formControlName="city" /></p>
+    <p>state: <input type="text" formControlName="state" /></p>
+    <p>pin: <input type="text" formControlName="pin" /></p>
+  </fieldset>
+
+  <input type="reset" value="clear" /> &nbsp;
+  <input type="submit" value="submit" />
+</form>
+
+<h3>{{ registerForm.value | json }}</h3>

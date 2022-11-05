@@ -1,0 +1,18 @@
+<p>message1 works!</p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Message text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let msg of messages; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ msg.text }}</td>
+    </tr>
+    <tr *ngIf="messages.length === 0">
+      <td colspan="2" class="text-center">No Rows</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,17 @@
+<h1 class="text-center bg-primary">Product List</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let prod of products">
+      <div class="card" style="width: 18rem">
+        <img src="{{ prod.images[0] }}" class="card-img-top" height="200px" />
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ prod.title }}</h5>
+          <p class="card-text">{{ prod.description }}</p>
+          <p class="card-text">Price: {{ prod.price }}</p>
+          <p class="card-text">Rating: {{ prod.rating }}</p>
+          <button class="btn btn-primary" (click)="addToCart(prod)">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<form #myForm="ngForm" (submit)="submitMyForm(myForm.value)">
+  name:
+  <input
+    name="name"
+    #name="ngModel"
+    [(ngModel)]="user.name"
+    required
+    pattern="[a-zA-Z]+"
+    minlength="5"
+  />
+  <span *ngIf="name.dirty && name.hasError('required')" class="text-danger">Name is Required</span>
+  <span *ngIf="name.dirty && name.hasError('minlength')" class="text-danger">Name should have 5 chars or more</span>
+  <br /><br />
+  age:
+  <input
+    name="age"
+    #age="ngModel"
+    [(ngModel)]="user.age"
+    required
+    pattern="[0-9]{2}"
+  />
+  <br /><br />
+
+  <input type="submit" [disabled]="myForm.invalid" />
+</form>
+<h3>{{user|json}}</h3>
